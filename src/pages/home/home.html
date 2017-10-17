@@ -11,9 +11,16 @@
 
 <ion-content >
   <ion-list>
-    <ion-item *ngFor="let fam of fams">  
+    <ion-item-sliding #slidingItem *ngFor="let fam of fams">  
+      <ion-item [ngClass]="{likecheck: fam.status == 'like'}">
       <h2>{{fam.name}}</h2>
       <h2>{{fam.phone_number}}</h2>
-    </ion-item>
+    </ion-item >
+     <ion-item-options side="right">
+        <button ion-button icon-only (click) = "Ilikeit(fam)" color="yellow">
+          <ion-icon name="star-outline"></ion-icon>
+        </button> 
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
