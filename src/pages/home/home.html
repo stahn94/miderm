@@ -16,7 +16,8 @@
       <h2>{{fam.name}}</h2>
       <h2>{{fam.phone_number}}</h2>
     </ion-item >
-     <ion-item-options side="right">
+     <ion-item-options side="right"
+                  (ionSwipe) = "removeFam(fam)">
         <button ion-button icon-only (click) = "Ilikeit(fam)" color="yellow">
           <ion-icon name="star-outline"></ion-icon>
         </button> 

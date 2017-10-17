@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {fam} from './fam';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  fams: Array<any> = [];
+  fams: Array<fam> = [];
   constructor(public navCtrl: NavController) {
     this.fams = [
       {name:'Father', phone_number: '010-1234-0000', address: '경북 포항시 북구 흥해읍 한동로 558 한동대학교 벧엘관', status: 'default'},
@@ -20,5 +21,12 @@ export class HomePage {
   }
   Ilikeit(fam: any){
     fam.status = "like";
+  }
+  removeFam(fam: any){
+    fam.status = "removed";
+    let index = this.fams.indexOf(fam);
+    if(index>-1){
+      this.fams.splice(index, 1);
+    }
   }
 }
