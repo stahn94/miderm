@@ -3,6 +3,7 @@
     <ion-title>
       Family
     </ion-title>
+    
     <ion-buttons end>
       <button ion-button (click)="addItem()"> PUSH</button>
     </ion-buttons>
@@ -10,8 +11,10 @@
 </ion-header>
 
 <ion-content >
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
-    <ion-item-sliding #slidingItem *ngFor="let fam of fams">  
+    <ion-item-sliding #slidingItem *ngFor="let fam of fams"
+                (click)="gofamDetails(fam)">  
       <ion-item [ngClass]="{likecheck: fam.status == 'like'}">
       <h2>{{fam.name}}</h2>
       <h2>{{fam.phone_number}}</h2>
